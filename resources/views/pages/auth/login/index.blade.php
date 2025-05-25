@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <img src="{{ secure_asset('assets/images/logo.png') }}" alt="Logo PT. Bintang Bunut" class="mb-4"
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="Logo PT. Bintang Bunut" class="mb-4"
                         style="max-width: 200px;">
                     <h1 class="h4 fw-bold">Sistem pemilihan suplier cat</h1>
                     <p class="mb-4 text-muted">dengan Metode MOORA</p>
@@ -32,7 +32,7 @@
                             <label for="email" class="form-label">Email / Username</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ secure_asset('assets/icons/email.svg') }}" alt="" srcset="">
+                                    <img src="{{ asset('assets/icons/email.svg') }}" alt="" srcset="">
 
                                 </span>
                                 <input type="text" class="form-control @error('email')  is-invalid @enderror"
@@ -51,7 +51,7 @@
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text ">
-                                    <img src="{{ secure_asset('assets/icons/password.svg') }}" alt=""
+                                    <img src="{{ asset('assets/icons/password.svg') }}" alt=""
                                         srcset="">
                                 </span>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror "

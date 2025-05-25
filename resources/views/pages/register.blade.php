@@ -17,7 +17,7 @@
                             <label for="name" class="form-label">Nama Lengkap</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ secure_asset('assets/icons/user.svg') }}" alt="" srcset="">
+                                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
 
                                 </span>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
@@ -36,7 +36,7 @@
                             <label for="username" class="form-label">Username</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ secure_asset('assets/icons/user.svg') }}" alt="" srcset="">
+                                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
 
                                 </span>
                                 <input type="text" class="form-control @error('username') is-invalid @enderror"
@@ -53,7 +53,7 @@
                             <label for="email" class="form-label">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ secure_asset('assets/icons/email.svg') }}" alt="" srcset="">
+                                    <img src="{{ asset('assets/icons/email.svg') }}" alt="" srcset="">
 
                                 </span>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -72,7 +72,7 @@
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text ">
-                                    <img src="{{ secure_asset('assets/icons/password.svg') }}" alt=""
+                                    <img src="{{ asset('assets/icons/password.svg') }}" alt=""
                                         srcset="">
                                 </span>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -88,7 +88,7 @@
                             <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ secure_asset('assets/icons/password.svg') }}" alt=""
+                                    <img src="{{ asset('assets/icons/password.svg') }}" alt=""
                                         srcset="">
                                 </span>
                                 <input type="password"
@@ -110,7 +110,7 @@
 
                             <button class="py-2 btn btn-dark w-100 d-flex align-items-center justify-content-center"
                                 type="submit">
-                                <img src="{{ secure_asset('assets/icons/userplus.svg') }}" alt="" class="me-2"
+                                <img src="{{ asset('assets/icons/userplus.svg') }}" alt="" class="me-2"
                                     style="width: 20px; height: 20px;">
                                 <span class="text-center flex-grow-1">Daftar Sekarang</span>
                             </button>

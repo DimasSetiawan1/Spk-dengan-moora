@@ -7,7 +7,7 @@
                 <div class="shadow card">
                     <div class="p-5 card-body">
                         <div class="mb-4 text-center">
-                            <img src="{{ secure_asset('assets/images/logo.png') }}" alt="Logo" class="mb-3"
+                            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="mb-3"
                                 style="max-width: 150px;">
                             <h2 class="fw-bold">Reset Password</h2>
                             <p class="text-muted">Enter your new password below</p>

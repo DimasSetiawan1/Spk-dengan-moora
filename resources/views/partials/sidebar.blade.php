@@ -7,11 +7,11 @@
 <div class="pb-3 sidebar pe-4">
     <nav class="navbar bg-light navbar-light">
         <a href="/" class="mx-4 mb-3 navbar-brand">
-            <img src="{{ secure_asset('assets/images/logo.png') }}" alt="Logo Perusahaan" style="max-height: 35px;">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo Perusahaan" style="max-height: 35px;">
         </a>
         <div class="mb-4 d-flex align-items-center ms-4">
             <div class="position-relative">
-                <img class="rounded-circle" src="{{ secure_asset('assets/icons/user.svg') }}" alt="User Avatar"
+                <img class="rounded-circle" src="{{ asset('assets/icons/user.svg') }}" alt="User Avatar"
                     style="width: 40px; height: 40px;">
                 <div
                     class="bottom-0 p-1 border border-2 border-white bg-success rounded-circle position-absolute end-0">
@@ -75,7 +75,7 @@
 {{-- <nav id="sidebarMenu" class="mx-auto col-md-2 col-lg-2 d-md-block bg-dark sidebar collapse"
     style="height: calc(100vh - 48px);">
     <a href="/" class="pb-3 d-flex link-body-emphasis text-decoration-none">
-        <img src="{{ secure_asset('assets/images/logo.png') }}" class='mx-auto img' alt="Logo Perusahaan"
+        <img src="{{ asset('assets/images/logo.png') }}" class='mx-auto img' alt="Logo Perusahaan"
             style="max-height: 35px;border-radius: 10px">
     </a>
     <div class="pt-3 ">

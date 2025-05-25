@@ -35,8 +35,10 @@
     31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     32 => 'Termwind\\Laravel\\TermwindServiceProvider',
     33 => 'Pest\\Laravel\\PestServiceProvider',
-    34 => 'App\\Providers\\AppServiceProvider',
-    35 => 'App\\Providers\\FortifyServiceProvider',
+    34 => 'Spatie\\Backup\\BackupServiceProvider',
+    35 => 'Spatie\\SignalAwareCommand\\SignalAwareCommandServiceProvider',
+    36 => 'App\\Providers\\AppServiceProvider',
+    37 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'eager' => 
   array (
@@ -59,8 +61,10 @@
     16 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     17 => 'Termwind\\Laravel\\TermwindServiceProvider',
     18 => 'Pest\\Laravel\\PestServiceProvider',
-    19 => 'App\\Providers\\AppServiceProvider',
-    20 => 'App\\Providers\\FortifyServiceProvider',
+    19 => 'Spatie\\Backup\\BackupServiceProvider',
+    20 => 'Spatie\\SignalAwareCommand\\SignalAwareCommandServiceProvider',
+    21 => 'App\\Providers\\AppServiceProvider',
+    22 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'deferred' => 
   array (

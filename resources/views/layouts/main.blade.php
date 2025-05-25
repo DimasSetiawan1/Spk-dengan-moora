@@ -26,15 +26,15 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> --}}
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ secure_asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ secure_asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @if (request()->is(['kriteria', 'subkriteria', 'penilaian', 'perhitungan', 'lists/users', 'supplier']))
         <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
     @endif
     @auth
-        <link href="{{ secure_asset('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @endauth
 </head>
 
@@ -75,7 +75,7 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script> --}}
 
     <!-- Template Javascript -->
-    <script src="{{ secure_asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
     {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
