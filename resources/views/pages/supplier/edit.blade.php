@@ -11,10 +11,19 @@
                 <div class="mx-auto card-body w-75">
                     <form action="{{ isset($supplier) ? route('supplier.update', $supplier->id) : route('supplier.store') }}"
                         method="POST">
-                        @csrf
                         @if (isset($supplier))
                             @method('PUT')
                         @endif
+                        @csrf
+                        <div class="my-3 form-group">
+                            <label for="code" class="mb-2">Kode Supplier</label>
+                            <input type="text" class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}"
+                                id="code" name="code"
+                                value="{{ old('code', isset($supplier) ? $supplier->code : '') }}" required>
+                            @if ($errors->has('code'))
+                                <div class="invalid-feedback">{{ $errors->first('code') }}</div>
+                            @endif
+                        </div>
                         <div class="my-3 form-group">
                             <label for="name" class="mb-2">Nama Supplier</label>
                             <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
