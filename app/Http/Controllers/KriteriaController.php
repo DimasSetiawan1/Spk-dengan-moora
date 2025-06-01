@@ -68,7 +68,7 @@ class KriteriaController extends Controller
     {
         $rules = [
             'bobot' => 'required|decimal:1,2',
-            'keterangan' => 'required',
+            'keterangan' => 'required|in:0,1',
         ];
         if ($request->name != $kriterium->name) {
             $rules['name'] = 'required|unique:kriterias';
