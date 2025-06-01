@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
         Route::resources([
             'lists/users' => UsersController::class,
         ]);
+        Route::delete('/lists/supplier/clear', [SupplierController::class, 'clearDataSupplier'])->name('supplier.clear');
     });
 });
 

@@ -16,8 +16,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <div class="mb-3 d-flex justify-content-start">
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-start">
             <a href="{{ route('supplier.create') }}" class="btn btn-primary">Daftar Supplier</a>
+            </div>
+            <div class="col d-flex justify-content-end">
+            <form action="{{ route('supplier.clear')}}" method="POST" onsubmit="return confirm('Yakin ingin menghapus semua data supplier?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete All</button>
+            </form>
+            </div>
         </div>
         <div class="table-responsive">
             <table id="tableSupplier" class="table table-striped table-bordered table-hover">

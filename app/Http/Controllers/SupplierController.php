@@ -20,6 +20,12 @@ class SupplierController extends Controller
         ]);
     }
 
+    public function clearDataSupplier(Request $request)
+    {
+        Supplier::truncate();
+        return redirect()->route('supplier.index')->with('success', 'Data Supplier berhasil dihapus');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
