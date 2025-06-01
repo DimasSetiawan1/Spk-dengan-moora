@@ -67,6 +67,8 @@ class KriteriaController extends Controller
     public function update(Request $request, Kriteria $kriterium)
     {
         $rules = [
+            'code' => 'required|unique:kriterias,code,' . $kriterium->id,
+            'name' => 'required',
             'bobot' => 'required|decimal:1,2',
             'keterangan' => 'required|in:0,1',
         ];
@@ -75,7 +77,9 @@ class KriteriaController extends Controller
         }
 
         $validated = $request->validate($rules);
-        $kriterium->where('id', $kriterium->id)->update($validated);
+        // dd($kriterium->where('id', $kriterium->id)->get());
+        $kriterium->update($validated);
+
         return to_route('kriteria.index')->with('success', 'Kriteria berhasil diubah');
     }
 

@@ -15,6 +15,15 @@
                             @method('PUT')
                         @endif
                         <div class="my-3 form-group">
+                            <label for="code" class="mb-2">Kode Kriteria</label>
+                            <input type="text" class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}"
+                                id="code" name="code"
+                                value="{{ old('code', isset($kriteria) ? $kriteria->code : '') }}" required>
+                            @if ($errors->has('code'))
+                                <div class="invalid-feedback">{{ $errors->first('code') }}</div>
+                            @endif
+                        </div>
+                        <div class="my-3 form-group">
                             <label for="name" class="mb-2">Nama Kriteria</label>
                             <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                 id="name" name="name"

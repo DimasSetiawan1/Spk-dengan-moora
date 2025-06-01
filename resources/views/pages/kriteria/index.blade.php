@@ -39,7 +39,7 @@
                                 <td>{{ $kriteria->code }}</td>
                                 <td>{{ $kriteria->name }}</td>
                                 <td>{{ $kriteria->bobot }}</td>
-                                <td>{{ $kriteria->keterangan === 1 ? 'benefit' : 'cost' }}</td>
+                                <td>{{ $kriteria->keterangan == 1 ? 'benefit' : 'cost' }}</td>
                                 <td>
                                     <a href="{{ route('kriteria.edit', $kriteria->id) }}"
                                         class="btn btn-warning btn-sm">Edit</a>
