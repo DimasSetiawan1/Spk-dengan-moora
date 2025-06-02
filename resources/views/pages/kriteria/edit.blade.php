@@ -44,13 +44,15 @@
                         </div>
                         <div class=" h-100">
                             <label for="keterangan" class="mb-2">keterangan</label>
-                            <select class=" form-select form-select-sm {{ $errors->has('keterangan') ? 'is-invalid' : '' }}"
+                            <select
+                                class=" form-select form-select-sm {{ $errors->has('keterangan') ? 'is-invalid' : '' }}"
                                 id="keterangan" name="keterangan" required>
+                                
                                 <option value="1"
-                                    {{ old('keterangan', isset($kriteria) ? $kriteria->keterangan : '') == 'benefit' ? 'selected' : '' }}>
+                                    {{ old('keterangan', isset($kriteria) ? $kriteria->keterangan : '') == 1 ? 'selected' : '' }}>
                                     Benefit</option>
                                 <option value="0"
-                                    {{ old('keterangan', isset($kriteria) ? $kriteria->keterangan : '') == 'cost' ? 'selected' : '' }}>
+                                    {{ old('keterangan', isset($kriteria) ? $kriteria->keterangan : '') == 0 ? 'selected' : '' }}>
                                     Cost
                                 </option>
                             </select>

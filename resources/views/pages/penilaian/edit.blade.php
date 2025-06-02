@@ -34,12 +34,14 @@
                         @if (!isset($add))
                             @method('PUT')
                         @endif
+
                         @foreach ($kriterias as $kriteria)
                             @if ($kriteria->subkriterias->count() > 0)
                                 <div class="my-3 form-group">
-                                    <label for="bobot" class="mb-2">{{ $kriteria->name }}</label>
+                                    <label for="bobot" class="mb-2">{{ $kriteria->code }} -
+                                        {{ $kriteria->name }}</label>
                                     <select class="form-select {{ $errors->has('bobot') ? 'is-invalid' : '' }}"
-                                        name="bobot[{{ $kriteria->id }}]" id="bobot" required>
+                                        name="values[{{ $kriteria->id }}]" id="bobot" required>
                                         @php
                                             $penilaian = [];
                                             $data = $supplier->kriterias->find($kriteria->id);
@@ -51,8 +53,8 @@
                                         @endphp
                                         <option value="">-- Pilih Salah Satu --</option>
                                         @foreach ($kriteria->subkriterias as $subkriterias)
-                                            <option value="{{ $subkriterias->bobot }}"
-                                                {{ old('bobot', $penilaian[$kriteria->id]) == $subkriterias->bobot ? 'selected' : '' }}>
+                                            <option value="{{ $subkriterias->id }}_{{ $subkriterias->bobot }}"
+                                                {{ old('values.' . $kriteria->id, $penilaian[$kriteria->id]) == $subkriterias->id . '_' . $subkriterias->bobot ? 'selected' : '' }}>
                                                 {{ $subkriterias->name }} - {{ $subkriterias->bobot }}</option>
                                         @endforeach
                                     </select>

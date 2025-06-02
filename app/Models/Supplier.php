@@ -13,6 +13,6 @@ class Supplier extends Model
 
     public function kriterias()
     {
-        return $this->belongsToMany(Kriteria::class, 'kriteria_supplier')->withPivot('bobot')->withTimestamps();
+        return $this->belongsToMany(Kriteria::class, 'kriteria_supplier')->withPivot('bobot', 'subkriteria_id')->withTimestamps();
     }
 }

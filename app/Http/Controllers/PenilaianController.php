@@ -49,18 +49,28 @@ class PenilaianController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Supplier $supplier)
+    public function store(Request $request)
     {
         $request->validate([
             'supplier_id' => ['required', 'exists:suppliers,id'],
-            'bobot[*]' => ['required', 'exists:subkriterias,id'],
+            'values.*' => ['required'],
         ]);
+
         $nilaiData = [];
-        foreach ($request->bobot as $kriteriaId => $subkriteriaId) {
-            $nilaiData[$kriteriaId] = ['bobot' => $subkriteriaId, 'supplier_id' => $request->supplier_id];
+        foreach ($request->values as $kriteriaId => $combinedValue) {
+            // Split the combined value
+            [$subkriteriaId, $bobot] = explode('_', $combinedValue);
+
+            $nilaiData[$kriteriaId] = [
+                'subkriteria_id' => $subkriteriaId,
+                'bobot' => $bobot,
+            ];
         }
+
+        $supplier = Supplier::find($request->supplier_id);
         $supplier->kriterias()->sync($nilaiData);
-        return to_route('penilaian.index')->with('success', 'Penilaian berhasil ditambahkan');
+
+        return redirect()->route('penilaian.index')->with('success', 'Penilaian berhasil ditambahkan');
     }
 
     /**

@@ -22,7 +22,8 @@
                                 <option value="">Pilih Kriteria</option>
                                 @if (isset($subkriteria))
                                     <option value="{{ $subkriteria->kriteria_id }}" selected>
-                                        {{ $subkriteria->kriteria->name . ' - ' . $subkriteria->kriteria->code }} </option>
+                                        {{ $subkriteria->kriteria->name . ' - ' . $subkriteria->kriteria->code }}
+                                    </option>
                                 @endif
                                 @foreach ($kriterias as $kriteria)
                                     <option value="{{ $kriteria->id }}"
@@ -31,7 +32,7 @@
                                 @endforeach
                             </select>
                             @if ($errors->has('kriteria'))
-                                <div class="invalid-feedback">{{ $errors->first('name') }}</div>
+                                <div class="invalid-feedback">{{ $errors->first('kriteria') }}</div>
                             @endif
                         </div>
                         <div class="my-3 form-group">

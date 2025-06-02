@@ -38,8 +38,9 @@
                             <td>
                                 {{ $supplier->name }}
                             </td>
-                            @foreach ($supplier->kriterias as $kriteria)
-                                <td>{{ $kriteria->pivot->bobot }}</td>
+                            @foreach ($supplier->kriterias as $index => $kriteria)
+                                <td>{{ \App\Models\Subkriteria::find($kriteria->pivot->subkriteria_id)->name }}</td>
+                                {{-- <td>{{ $kriteria->pivot->subkriteria_id }}</td> --}}
                             @endforeach
 
                             <td>
