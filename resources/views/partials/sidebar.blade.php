@@ -37,19 +37,21 @@
                             class="dropdown-item {{ Request::is('kriteria*') ? 'active' : '' }}">
                             <i class="fa fa-list-ul me-2"></i>Data Kriteria
                         </a>
-                        <a href="{{ route('subkriteria.index') }}"
-                            class="dropdown-item {{ Request::is('subkriteria*') ? 'active' : '' }}">
-                            <i class="fa fa-list-ol me-2"></i>Data Subkriteria
-                        </a>
                     @endcan
+                    <a href="{{ route('subkriteria.index') }}"
+                        class="dropdown-item {{ Request::is('subkriteria*') ? 'active' : '' }}">
+                        <i class="fa fa-list-ol me-2"></i>Data Subkriteria
+                    </a>
                     <a href="{{ route('supplier.index') }}"
                         class="dropdown-item {{ Request::is('supplier*') ? 'active' : '' }}">
                         <i class="fa fa-truck me-2"></i>Data Supplier
                     </a>
-                    <a href="{{ route('penilaian.index') }}"
-                        class="dropdown-item {{ Request::is('penilaian*') ? 'active' : '' }}">
-                        <i class="fa fa-star me-2"></i>Data Penilaian
-                    </a>
+                    @can(['superadmin', 'admin'])
+                        <a href="{{ route('penilaian.index') }}"
+                            class="dropdown-item {{ Request::is('penilaian*') ? 'active' : '' }}">
+                            <i class="fa fa-star me-2"></i>Data Penilaian
+                        </a>
+                    @endcan
                 </div>
             </div>
             @can('superadmin')

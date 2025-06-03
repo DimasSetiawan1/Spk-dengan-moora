@@ -64,7 +64,7 @@
     </div>
 
     <table>
-        <thead>
+        {{-- <thead>
             <tr>
                 <th>No</th>
                 <th>Nama Supplier</th>
@@ -79,6 +79,35 @@
                     <td>{{ number_format($supplier->nilai, 4) }}</td>
                 </tr>
             @endforeach
+        </tbody> --}}
+        <thead class="table-light">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Supplier</th>
+                @foreach ($kriteria as $kriteriaItem)
+                    <th scope="col">{{ $kriteriaItem }}</th>
+                @endforeach
+
+                <th scope="col">Nilai</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach ($suppliers->sortByDesc('nilai') as $index => $supplier)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>
+                        {{ $supplier->name }}
+                    </td>
+                    @foreach ($supplier->kriterias as $key => $kriteria)
+                        <td>{{ \App\Models\Subkriteria::find($kriteria->pivot->subkriteria_id)->name }}</td>
+                    @endforeach
+                    <td>{{ number_format($supplier->nilai, 4) }}</td>
+                </tr>
+            @endforeach
+
         </tbody>
     </table>
 

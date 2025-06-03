@@ -70,7 +70,7 @@ class PenilaianController extends Controller
         $supplier = Supplier::find($request->supplier_id);
         $supplier->kriterias()->sync($nilaiData);
 
-        return redirect()->route('penilaian.index')->with('success', 'Penilaian berhasil ditambahkan');
+        return redirect()->route('penilaian.create')->with('success', 'Penilaian berhasil ditambahkan');
     }
 
     /**

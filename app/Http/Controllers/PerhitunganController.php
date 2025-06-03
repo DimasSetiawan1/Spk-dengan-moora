@@ -15,7 +15,7 @@ class PerhitunganController extends Controller
     public function index()
     {
         /** SPK DENGAN MOORA */
-        $kriterias = Kriteria::orderBy('code')->get();
+        $kriterias = Kriteria::all();
         $suppliers = Supplier::orderBy('code')->whereHas('kriterias')->get();
         $matriks = [];
 

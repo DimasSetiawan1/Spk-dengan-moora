@@ -86,21 +86,28 @@
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Nama Supplier</th>
+                        @foreach ($kriterias as $kriteria)
+                            <th scope="col">{{ $kriteria->name }}</th>
+                        @endforeach
                         <th scope="col">Nilai</th>
-                        {{-- <th></th> --}}
+
 
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach ($suppliers->sortByDesc(function ($supplier) use ($nilais) {
             return $nilais[$supplier->id] ?? 0;
-        }) as $supplier)
-                        <tr class="{{ $loop->first ? 'table-success' : '' }}">
+        }) as $index => $supplier)
+                        <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
                                 {{ $supplier->name }}
                             </td>
-                            <td>{{ $nilais[$supplier->id] }}</td>
+                            @foreach ($supplier->kriterias as $key => $kriteria)
+                                <td>{{ \App\Models\Subkriteria::find($kriteria->pivot->subkriteria_id)->name }}</td>
+                            @endforeach
+                            <td>{{ $supplier->nilai }}</td>
                         </tr>
                     @endforeach
 

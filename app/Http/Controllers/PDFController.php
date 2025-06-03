@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supplier;
-use App\Models\User;
-use Arr;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
 
 class PDFController extends Controller
 {
     public function generatePDF()
     {
         $suppliers = Supplier::where('nilai', '>', 0)->orderByDesc('nilai')->get();
+        $kriteria = $suppliers->first()->kriterias->pluck('name')->toArray();
         $data = [
             'title' => 'Hasil Pemilihan Supplier Terbaik Mengunakan Metode MOORA',
             'suppliers' => $suppliers,
+            'kriteria' => $kriteria,
             'date' => date('d F Y')
         ];
 

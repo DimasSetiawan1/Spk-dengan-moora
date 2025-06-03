@@ -4,6 +4,12 @@
     <main class="container-fluid">
         <div class="container py-5 mt-5">
             <div class="mx-auto border-0 rounded shadow card w-50">
+                @if (session('success'))
+                    <div class="m-3 alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') ?? 'Penilaian berhasil ditambahkan.' }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="p-3 text-center card-title">
                     <h1>{{ $title }}</h1>
                     @if (!isset($add))

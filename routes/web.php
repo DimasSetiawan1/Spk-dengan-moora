@@ -27,22 +27,24 @@ Route::middleware('auth')->group(function () {
         'perhitungan' => PerhitunganController::class,
         'supplier' => SupplierController::class,
         'profile' => ProfileController::class,
+        'subkriteria' => SubkriteriaController::class,
+
     ]);
 
-    Route::resource('penilaian', PenilaianController::class)->parameters([
-        'penilaian' => 'supplier'
-    ])->except(['show']);
+
 
     Route::middleware('can:admin')->group(function () {
         Route::resources([
             'kriteria' => KriteriaController::class,
-            'subkriteria' => SubkriteriaController::class,
+            'penilaian' => PenilaianController::class,
         ]);
     });
 
     Route::middleware('can:superadmin')->group(function () {
         Route::resources([
             'lists/users' => UsersController::class,
+            'penilaian' => PenilaianController::class,
+
         ]);
         Route::delete('/lists/supplier/clear', [SupplierController::class, 'clearDataSupplier'])->name('supplier.clear');
     });

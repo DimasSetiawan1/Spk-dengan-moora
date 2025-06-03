@@ -11,43 +11,49 @@
         @endif
         <div class="mt-4 mb-3 row">
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-truck fa-3x text-primary me-3"></i>
-                            <div>
-                                <h5 class="card-title">Total Supplier</h5>
-                                <p class="card-text fs-4">{{ $supplier }}</p>
+                <a href="{{ route('supplier.index') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-truck fa-3x text-primary me-3"></i>
+                                <div>
+                                    <h5 class="card-title">Total Supplier</h5>
+                                    <p class="card-text fs-4">{{ $supplier }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-list-ul fa-3x text-success me-3"></i>
-                            <div>
-                                <h5 class="card-title">Total Kriteria</h5>
-                                <p class="card-text fs-4">{{ $kriteria }}</p>
+                <a href="{{ route('kriteria.index') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-list-ul fa-3x text-success me-3"></i>
+                                <div>
+                                    <h5 class="card-title">Total Kriteria</h5>
+                                    <p class="card-text fs-4">{{ $kriteria }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-tasks fa-3x text-warning me-3"></i>
-                            <div>
-                                <h5 class="card-title">Total Subkriteria</h5>
-                                <p class="card-text fs-4">{{ $subkriteria }}</p>
+                <a href="{{ route('subkriteria.index') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-tasks fa-3x text-warning me-3"></i>
+                                <div>
+                                    <h5 class="card-title">Total Subkriteria</h5>
+                                    <p class="card-text fs-4">{{ $subkriteria }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
