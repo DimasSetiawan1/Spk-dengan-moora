@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubkriteriaController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,14 @@ Route::get('/', function () {
     }
     return view('login');
 })->name('home');
-
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email,rfc,dns|exists:users,email',
+        'g-recaptcha-response' => 'required|recaptcha',
+    ], [
+        'g-recaptcha-response.required' => 'Please complete the reCAPTCHA verification.',
+    ]);
+})->name('password.email');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

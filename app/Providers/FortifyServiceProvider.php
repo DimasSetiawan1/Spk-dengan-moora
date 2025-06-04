@@ -76,7 +76,6 @@ class FortifyServiceProvider extends ServiceProvider
                 return to_route('login')->with('error', 'Invalid token');
             }
         });
-        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('email', $request->email)->orWhere('username', $request->email)->first();
