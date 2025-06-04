@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PenilaianController;
@@ -19,14 +20,9 @@ Route::get('/', function () {
     }
     return view('login');
 })->name('home');
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate([
-        'email' => 'required|email:rfc,dns|exists:users,email',
-        'g-recaptcha-response' => 'required|captcha',
-    ], [
-        'g-recaptcha-response.required' => 'Please complete the reCAPTCHA verification.',
-    ]);
-})->name('password.email');
+
+Route::post('forgot-password', [ForgotPasswordController::class, 'store'])
+    ->name('password.email');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
