@@ -26,6 +26,8 @@ class RegisterController extends Controller
             'username' => 'required|string|min:5|max:255|unique:users',
             'email' => 'required|string|email:dns|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'g-recaptcha-response' => 'required|captcha'
+
         ]);
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);

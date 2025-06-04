@@ -72,8 +72,7 @@
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text ">
-                                    <img src="{{ asset('assets/icons/password.svg') }}" alt=""
-                                        srcset="">
+                                    <img src="{{ asset('assets/icons/password.svg') }}" alt="" srcset="">
                                 </span>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     name="password" id="password" placeholder="Minimal 8 karater" required>
@@ -88,8 +87,7 @@
                             <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                             <div class="input-group">
                                 <span class="input-group-text">
-                                    <img src="{{ asset('assets/icons/password.svg') }}" alt=""
-                                        srcset="">
+                                    <img src="{{ asset('assets/icons/password.svg') }}" alt="" srcset="">
                                 </span>
                                 <input type="password"
                                     class="form-control @error('password_confirmation') is-invalid @enderror"
@@ -101,6 +99,13 @@
                                     </div>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="mb-4 text-start">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            @error('g-recaptcha-response')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
 

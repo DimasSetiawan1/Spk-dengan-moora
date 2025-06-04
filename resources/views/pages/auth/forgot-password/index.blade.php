@@ -45,6 +45,13 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="mb-4 text-start">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            @error('g-recaptcha-response')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
 
                         <!-- Tombol Login -->
                         <button class="py-2 btn btn-dark w-100" type="submit">Forgot Password</button>
@@ -54,8 +61,8 @@
 
             <!-- Bagian Gambar -->
             <div class="p-0 col-md-6 col-sm-12">
-                <img src="{{ asset('assets/images/banner-login.png') }}"
-                    class="img-fluid w-100 h-100 object-fit-cover" alt="Banner Login">
+                <img src="{{ asset('assets/images/banner-login.png') }}" class="img-fluid w-100 h-100 object-fit-cover"
+                    alt="Banner Login">
             </div>
         </div>
     </div>
