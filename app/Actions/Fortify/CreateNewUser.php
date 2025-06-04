@@ -29,6 +29,8 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
+            'g-recaptcha-response' => 'required|captcha',
+            'role' => ['required', 'in:admin,user'],
             'password' => $this->passwordRules(),
         ])->validate();
 
@@ -36,6 +38,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'username' => $input['username'],
+            'role' => $input['role'],
             'password' => Hash::make($input['password']),
         ]);
     }

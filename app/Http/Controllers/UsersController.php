@@ -41,6 +41,7 @@ class UsersController extends Controller
             'email' => 'required|email:rfc,dns',
             'role' => 'required|in:admin,user',
             'password' => 'required|min:8',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
         $request['password'] = FacadesHash::make($request->password);
         User::create($request->all());
