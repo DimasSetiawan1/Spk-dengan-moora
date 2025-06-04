@@ -1,27 +1,59 @@
-/.phpunit.cache
+# Laravel general
+/vendor
 /node_modules
-/public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/pail
-/vendor
 .env
-.env.backup
-.env.production
-.phpactor.json
+.env.*
 .phpunit.result.cache
-Homestead.json
 Homestead.yaml
-auth.json
+Homestead.json
 npm-debug.log
 yarn-error.log
-/.fleet
-/.idea
-/.nova
-/.vscode
-/.zed
+.pnpm-debug.log
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
 
-**/caddy
-frankenphp
-frankenphp-worker.php
+# Cache & Logs
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+!/storage/framework/cache/data
+
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+
+/storage/framework/testing/*
+!/storage/framework/testing/.gitkeep
+
+/storage/debugbar/*
+!/storage/debugbar/.gitkeep
+
+# Storage app
+/storage/app/*
+!/storage/app/public
+!/storage/app/.gitignore
+
+# Composer
+composer.phar
+
+# Laravel Mix
+/public/mix-manifest.json
+/public/js/*.map
+/public/css/*.map
+
+# Testing
+coverage/
+.phpunit.result.cache
+
+# IDE/OS artifacts
+.DS_Store
+Thumbs.db
