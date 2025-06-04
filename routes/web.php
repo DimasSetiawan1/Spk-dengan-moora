@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::post('/forgot-password', function (Request $request) {
     $request->validate([
         'email' => 'required|email:rfc,dns|exists:users,email',
-        'g-recaptcha-response' => 'required|recaptcha',
+        'g-recaptcha-response' => 'required|captcha',
     ], [
         'g-recaptcha-response.required' => 'Please complete the reCAPTCHA verification.',
     ]);
