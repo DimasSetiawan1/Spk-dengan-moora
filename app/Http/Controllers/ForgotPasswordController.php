@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Password;
 use Laravel\Fortify\Contracts\FailedPasswordResetLinkRequestResponse;
 use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
@@ -19,7 +20,7 @@ class ForgotPasswordController extends Controller
 
         if (config('fortify.lowercase_usernames') && $request->has(Fortify::email())) {
             $request->merge([
-                Fortify::email() => String::lower($request->{Fortify::email()}),
+                Fortify::email() => Str::lower($request->{Fortify::email()}),
             ]);
         }
 
