@@ -11,18 +11,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-Schedule::command("custom:backup-run", function () {
-    try {
-        Log::info("Starting backup command...");
-
-        Artisan::command('backup:run');
-
-        $output = Artisan::output();
-
-        Log::info("Backup command completed successfully.");
-        $this->info($output);
-    } catch (\Exception $e) {
-        Log::error("Backup command failed: " . $e->getMessage());
-        $this->error("Backup command failed: " . $e->getMessage());
-    }
-})->purpose('Run the backup command');
+Schedule::command("custom:backup-run")->everyMinute();
