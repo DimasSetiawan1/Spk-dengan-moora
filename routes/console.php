@@ -11,4 +11,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-Schedule::command("custom:backup-run")->everyMinute();
+Schedule::command("backup:run")->everyMinute();
