@@ -11,11 +11,11 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-Artisan::command("custom:backup-run", function () {
+Schedule::command("custom:backup-run", function () {
     try {
         Log::info("Starting backup command...");
 
-        Artisan::call('backup:run');
+        Artisan::command('backup:run');
 
         $output = Artisan::output();
 
