@@ -11,9 +11,8 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-Schedule::command("backup:run")->dailyAt("02:00")->onSuccess(function () {
+Artisan::command("backup:run")->dailyAt("02:00")->onSuccess(function () {
     Log::info('Backup completed successfully.');
 })->onFailure(function () {
     Log::error('Backup failed.');
 });
-// Schedule::command('backup:clean')->dailyAt('03:00');
