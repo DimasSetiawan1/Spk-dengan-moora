@@ -11,8 +11,18 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-Artisan::command("backup:run")->dailyAt("02:00")->onSuccess(function () {
-    Log::info('Backup completed successfully.');
-})->onFailure(function () {
-    Log::error('Backup failed.');
-});
+Artisan::command("custom:backup-run", function () {
+    try {
+        Log::info("Starting backup command...");
+
+        Artisan::call('backup:run');
+
+        $output = Artisan::output();
+
+        Log::info("Backup command completed successfully.");
+        $this->info($output);
+    } catch (\Exception $e) {
+        Log::error("Backup command failed: " . $e->getMessage());
+        $this->error("Backup command failed: " . $e->getMessage());
+    }
+})->purpose('Run the backup command');
