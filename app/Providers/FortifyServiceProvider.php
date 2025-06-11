@@ -81,12 +81,10 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where(function ($query) use ($request) {
-                $query->where('email', $request->email)
-                    ->orWhere('username', $request->email);
-            })->first();
+            $username = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+            $user = User::where($username, $request->email)->first();
 
-            if ($user && FacadesHash::check($request->password, $user->password)) {
+            if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
             }
         });
