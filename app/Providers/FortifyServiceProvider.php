@@ -7,10 +7,10 @@ use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash as FacadesHash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -52,7 +52,7 @@ class FortifyServiceProvider extends ServiceProvider
 
 
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate($request->input(Fortify::username()) . '|' . $request->ip());
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
@@ -81,9 +81,10 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            $username = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-            $user = User::where($username, $request->email)->first();
 
+            $filterInputType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'LOWER(email) = ?' : 'LOWER(username) = ?';
+            $user = User::whereRaw($filterInputType, $request->email)->first();
+            Log::info('Authenticating user with ' . $filterInputType . ': ' . $request->email);
             if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
             }

@@ -27,20 +27,20 @@ class AppServiceProvider extends ServiceProvider
 
 
     {
-        if (config('app.env') === 'production') {
+        if (config('app.env') == 'production') {
             URL::forceScheme('https');
         }
         /**
          * ROLE
          */
         Gate::define('superadmin', function (User $user) {
-            return $user->role === 'superadmin'
+            return $user->role == 'superadmin'
                 ? Response::allow()
                 : Response::deny('You must be a super administrator.');
         });
 
         Gate::define('admin', function (User $user) {
-            return $user->role === 'admin' || $user->role === 'superadmin'
+            return $user->role == 'admin' || $user->role == 'superadmin'
                 ? Response::allow()
                 : Response::deny('You must be an administrator.');
         });
