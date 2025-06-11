@@ -69,7 +69,7 @@ class FortifyServiceProvider extends ServiceProvider
             return view('pages.register');
         });
 
-        Fortify::requestPasswordResetLinkView(function ()    {
+        Fortify::requestPasswordResetLinkView(function () {
             return view('pages.auth.forgot-password.index');
         });
         Fortify::resetPasswordView(function (Request $request) {
@@ -81,7 +81,10 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->orWhere('username', $request->email)->first();
+            $user = User::where(function ($query) use ($request) {
+                $query->where('email', $request->email)
+                    ->orWhere('username', $request->email);
+            })->first();
 
             if ($user && FacadesHash::check($request->password, $user->password)) {
                 return $user;
